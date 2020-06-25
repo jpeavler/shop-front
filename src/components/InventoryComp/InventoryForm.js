@@ -23,7 +23,7 @@ const InventoryForm = ({refresh, myItem, id}) => {
     const [username, setUsername] = useState('');
 
     const getUserInfo = () => {
-        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/auth/id/${isLoggedIn()}`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/auth/id/${isLoggedIn()}`)
         .then(response => response.json()).then(userInfo => setUsername(userInfo.username))
     }
     useEffect(() => {
@@ -36,7 +36,7 @@ const InventoryForm = ({refresh, myItem, id}) => {
         if(myItem) {
             isActive = myItem.isActive;
             const updatedItem = {name, desc, quantity, price, isActive, seller};
-            fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory/${id}`, {
+            fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/${id}`, {
                 method: 'PUT',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify(updatedItem)
@@ -45,7 +45,7 @@ const InventoryForm = ({refresh, myItem, id}) => {
                 .then(() => setPrice('')).then(() => refresh()).then(() => setModal(false))
         } else {
             const addedItem = {name, desc, quantity, price, isActive, seller};
-            fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory`, {
+            fetch(`https://shop-jpeavler.herokuapp.com/api/inventory`, {
                 method: 'POST',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify(addedItem)

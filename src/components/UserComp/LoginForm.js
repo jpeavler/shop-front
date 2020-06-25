@@ -27,7 +27,7 @@ const LoginForm = ({loggedIn, setLoggedIn}) => {
         } else {
             localStorage.removeItem('username');
         }
-        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/auth/login`, {
+        fetch(`https://shop-jpeavler.herokuapp.com/auth/login`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({username, password})

@@ -30,13 +30,13 @@ const InventoryDisplay = () => {
         setUpdate(true);
     }
     const handleDelete = (id) => {
-        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory/${id}`, {
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/${id}`, {
             method: 'DELETE'
         }).then(response => response.json()).then(getInv)
     }
     const toggleActive = (id, isActive) => {
         const newActiveStatus = {isActive};
-        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory/${id}`, {
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/${id}`, {
             method: 'PATCH',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(newActiveStatus)
