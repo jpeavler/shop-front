@@ -17,12 +17,12 @@ const InventoryDisplay = () => {
         getInv();
     }, []);
     const getInv = () => {
-        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory`)
             .then(response => response.json()).then(inv => setInv(inv))
             .then(() => setUpdate(false)).then(() => setItemToUpdate(''))
     }
     const getUserInfo = () => {
-        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/auth/id/${isLoggedIn()}`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/auth/id/${isLoggedIn()}`)
         .then(response => response.json()).then(userInfo => setUsername(userInfo.username))
     }
     const handleUpdate = (item) => {

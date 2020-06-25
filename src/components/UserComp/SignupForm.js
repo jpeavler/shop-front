@@ -36,7 +36,7 @@ const SignupForm = () => {
     }
     const handleUsername = () => {
         setMsg("");
-        fetch(`${process.env.REACT_APP_API_URL}/api/auth/${username}`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/auth/${username}`)
             .then(response => response.json()).then(fetchMsg => setTaken(fetchMsg.length))
         if(usernameTaken == 1) {
             setMsg("Username already taken");
