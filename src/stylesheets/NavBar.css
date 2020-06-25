@@ -1,0 +1,27 @@
+nav{
+    width: 100vw;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: deepskyblue;
+}
+nav .NavLink{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1em;
+}
+nav .NavLink:hover{
+    background-color: #1565C0
+}
+@media all and (max-width: 600px){
+    .nav{
+      flex-direction: column; 
+    }
+    nav .NavLink{
+      text-align: center;
+      border-top: 1px solid;
+      width: 100vw;
+      height: 50px;
+    }
+}
