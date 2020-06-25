@@ -17,12 +17,12 @@ const InventoryDisplay = () => {
         getInv();
     }, []);
     const getInv = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/api/inventory`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory`)
             .then(response => response.json()).then(inv => setInv(inv))
             .then(() => setUpdate(false)).then(() => setItemToUpdate(''))
     }
     const getUserInfo = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/api/auth/id/${isLoggedIn()}`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/auth/id/${isLoggedIn()}`)
         .then(response => response.json()).then(userInfo => setUsername(userInfo.username))
     }
     const handleUpdate = (item) => {
@@ -30,13 +30,13 @@ const InventoryDisplay = () => {
         setUpdate(true);
     }
     const handleDelete = (id) => {
-        fetch(`${process.env.REACT_APP_API_URL}/api/inventory/${id}`, {
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory/${id}`, {
             method: 'DELETE'
         }).then(response => response.json()).then(getInv)
     }
     const toggleActive = (id, isActive) => {
         const newActiveStatus = {isActive};
-        fetch(`${process.env.REACT_APP_API_URL}/api/inventory/${id}`, {
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory/${id}`, {
             method: 'PATCH',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(newActiveStatus)

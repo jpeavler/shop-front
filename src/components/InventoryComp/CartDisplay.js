@@ -12,7 +12,7 @@ const CartDisplay = () => {
         getTotal();
     }, [cartItems])
     const getInv = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/api/inventory`).then(response => response.json())
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/inventory`).then(response => response.json())
         .then(inv => {
             let invInCart = Object.assign([], inv);
             invInCart = invInCart.filter((item) => {

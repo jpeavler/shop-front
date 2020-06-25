@@ -19,7 +19,7 @@ const SignupForm = () => {
             const bio = "Shop user";
             const pic = 0;
             const user = {username, email, password, isActive, bio, pic};
-            fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
+            fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/auth/register`, {
                 method: 'POST',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify(user)

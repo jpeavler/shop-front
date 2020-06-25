@@ -12,7 +12,7 @@ const Profile = () => {
     const [modalOpen, setModal] = useState(false);
 
     const getUserInfo = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/api/auth/id/${loggedIn}`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/auth/id/${loggedIn}`)
         .then(response => response.json()).then(userInfo => {
             setUser(userInfo); 
             setBio(userInfo.bio);
@@ -22,7 +22,7 @@ const Profile = () => {
     const updateProfile = (event) => {
         event.preventDefault();
         let toUpdate = {bio: newBio, pic: newPic};
-        fetch(`${process.env.REACT_APP_API_URL}/api/auth/id/${loggedIn}`, {
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory/api/auth/id/${loggedIn}`, {
             method: "PATCH",
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(toUpdate)
