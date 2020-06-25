@@ -12,7 +12,7 @@ const ShopDisplay = () => {
         getInv();
     }, []);
     const getInv = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/api/inventory`)
+        fetch(`https://shop-jpeavler.herokuapp.com/api/inventory`)
             .then(response => response.json()).then(inv => setInv(inv))
     }
     const handleSort = (sortMethod) => {
