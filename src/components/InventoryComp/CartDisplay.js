@@ -20,7 +20,7 @@ const CartDisplay = () => {
                 if(cart != null) {
                     let cartParsed = cart.split(",");
                     cartParsed.forEach((itemID) => {
-                        if(itemID == item._id) {keep = true;}
+                        if(itemID === item._id) {keep = true;}
                     })
                 }
                 return keep;
@@ -45,7 +45,7 @@ const CartDisplay = () => {
     });
     return (
         <Table striped>
-        <thead><th>Product Name</th><th>Price</th></thead>
+        <thead><tr><th>Product Name</th><th>Price</th></tr></thead>
         <tbody>
             {displayInv}
             <tr><td>Total</td><td>${total}</td></tr>

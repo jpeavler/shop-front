@@ -17,9 +17,9 @@ const ShopDisplay = () => {
     }
     const handleSort = (sortMethod) => {
         let sortedInv = Object.assign([], inventory);
-        if(sortMethod == "quantity") {
+        if(sortMethod === "quantity") {
             sortedInv.sort((a, b) => b.quantity - a.quantity);
-        } else if(sortMethod == "price") {
+        } else if(sortMethod === "price") {
             sortedInv.sort((a, b) => b.price - a.price);
         }
         setInv(sortedInv);
@@ -30,10 +30,10 @@ const ShopDisplay = () => {
             changedCart = changedCart.concat(id, ",");
         } else {
             let cartArray = changedCart.split(',');
-            cartArray = cartArray.filter((cartID) => id != cartID);
+            cartArray = cartArray.filter((cartID) => id !== cartID);
             changedCart = "";
             cartArray.forEach((cartID) => {
-                if(cartID != ""){
+                if(cartID !== ""){
                     changedCart = changedCart.concat(cartID, ",")
                 }
             })
@@ -47,7 +47,9 @@ const ShopDisplay = () => {
         let cartArray = cart.split(','); 
         let inCart = false;
         cartArray.forEach((CartID) => {
-            if(item._id == CartID) {inCart = true}
+            if(item._id === CartID) {
+                inCart = true
+            }
         });
         if(isLoggedIn()) {
             if(inCart) {
@@ -72,7 +74,7 @@ const ShopDisplay = () => {
                     </CardFooter>
                 </Card>
             )
-        }
+        } else {return null;}
     });
     const toggleModal = () => setFModal(!filterModal);
     return (

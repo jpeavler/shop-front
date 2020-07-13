@@ -34,10 +34,10 @@ const Profile = () => {
     const toggle = () => {setModal(!modalOpen)}
 
     let img;
-    if(user.pic == 0) {img =<Media object src="/assets/blackUser.png" alt="Profile0" className="profilepic"/>}
-    else if(user.pic == 1) {img =<Media object src="/assets/redUser.png" alt="Profile1" className="profilepic"/>}
-    else if(user.pic == 2) {img =<Media object src="/assets/blueUser.png" alt="Profile2" className="profilepic"/>}
-    else if(user.pic == 3) {img =<Media object src="/assets/purpleUser.png" alt="Profile3" className="profilepic"/>}
+    if(user.pic === 0) {img =<Media object src="/assets/blackUser.png" alt="Profile0" className="profilepic"/>}
+    else if(user.pic === 1) {img =<Media object src="/assets/redUser.png" alt="Profile1" className="profilepic"/>}
+    else if(user.pic === 2) {img =<Media object src="/assets/blueUser.png" alt="Profile2" className="profilepic"/>}
+    else if(user.pic === 3) {img =<Media object src="/assets/purpleUser.png" alt="Profile3" className="profilepic"/>}
     return (
         <div className="profile">
             <NavBar loggedIn={loggedIn} setLoggedIn ={setLoggedIn}/>

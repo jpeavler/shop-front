@@ -14,7 +14,7 @@ const SignupForm = () => {
         event.preventDefault();
         setSpinner(true);
         setMsg("");
-        if(password === pswrdconfirm && usernameTaken == 0){
+        if(password === pswrdconfirm && usernameTaken === 0){
             const isActive = true;
             const bio = "Shop user";
             const pic = 0;
@@ -25,9 +25,9 @@ const SignupForm = () => {
                 body: JSON.stringify(user)
             }).then(() => setUserName('')).then(() => setEmail(''))
                 .then(() => setPassword('')).then(() => setConfirm(''))
-        } else if (password != pswrdconfirm && usernameTaken != 0) {
+        } else if (password !== pswrdconfirm && usernameTaken !== 0) {
             setMsg("Username already taken and passwords must match")
-        } else if(password != pswrdconfirm) {
+        } else if(password !== pswrdconfirm) {
             setMsg("Passwords must match");
         } else {
             setMsg("Username already taken")
@@ -37,8 +37,8 @@ const SignupForm = () => {
     const handleUsername = () => {
         setMsg("");
         fetch(`https://shop-jpeavler.herokuapp.com/api/auth/${username}`)
-            .then(response => response.json()).then(fetchMsg => setTaken(fetchMsg.length))
-        if(usernameTaken == 1) {
+        .then(response => response.json()).then(fetchMsg => setTaken(fetchMsg.length))
+        if(usernameTaken === 1) {
             setMsg("Username already taken");
         } else {
             setMsg("");
